@@ -1,0 +1,40 @@
+<!-- <p>login works!</p> -->
+
+<div class="login">
+    <form class="example-form" [formGroup]="loginForm">
+        <mat-form-field appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="User Name" name="userName" formControlName="userName">
+            <mat-icon matSuffix>
+                <img src="./assets/images/user-icon.svg">
+            </mat-icon>
+            <mat-error *ngIf="loginForm.touched && loginForm.get('userName')?.hasError('required')">
+              user name required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password" name="password" formControlName="password">
+            <mat-icon matSuffix>
+                <img src="./assets/images/password-icon.svg">
+            </mat-icon>
+            <mat-error *ngIf="loginForm.touched && loginForm.get('password')?.hasError('required')">
+              password required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+              minimum 10 letter
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('maxlength')">
+              maximum 20 letter
+            </mat-error>
+            <!-- <mat-error *ngIf="loginForm?.get('password')?.errors?['required']">
+
+            </mat-error> -->
+        </mat-form-field>
+        <div class="d-flex align-items-center justify-content-center">
+
+            <button (click)="login()" [disabled]="loginForm.invalid" class="btn btn-outline-primary">Login</button>
+        </div>
+    </form>
+</div>

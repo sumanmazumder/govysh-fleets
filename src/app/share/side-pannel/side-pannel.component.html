@@ -1,0 +1,18 @@
+<!-- <p>side-pannel works!</p> -->
+<div class="sidePannel">
+  <div class="d-flex justify-content-between">
+    <div class="logo">
+      <img src=""/>
+    </div>
+    <div class="user_info">
+      <span>Howdy</span>
+      <p>Suman Mazumder</p>
+      <p class="userId">Fleet ID: </p>
+    </div>
+  </div>
+  <ul *ngFor="let menu of sidePannel">
+    <li><a [routerLink]="menu.path">{{menu.name}}</a></li>
+  </ul>
+</div>
+
+
