@@ -1,0 +1,36 @@
+.logo{
+    flex: 0 0 30%;
+    max-width: 100%;
+}
+.sidePannel > div{padding: 50px 20px;}
+.sidePannel{
+    .user_info{
+        span{
+            color: #fff;
+            font-size: 14px;
+        }
+        p{
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0px;
+        }
+        p.userId{color: lightblue; font-weight: 400;}
+    }
+    ul{
+        list-style: none;
+        li{
+            padding: 15px 0px;
+            a{
+                font-size: 18px;
+                color: #ffffff;
+                text-decoration: none;
+                width: 100%;
+                display: inline-block;
+                &:hover{
+                    color: lightblue;
+                }
+            }
+        }
+    }
+}

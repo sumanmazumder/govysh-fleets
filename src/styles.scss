@@ -2,3 +2,31 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// app-root{width: 100%;}
+.mat-form-field{width: 100%;}
+.login .mat-form-field-appearance-outline .mat-form-field-outline{color: rgba(251, 251, 251, 0.12); background-color: #ffffff; border-radius: 5px;}
+.mat-icon{display: flex !important; align-items: center; justify-content: center;}
+.mat-icon img{width: 20px; height: 20px;}
+.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix{top:0em}
+
+.mat-focused .mat-form-field-label{background-color: transparent; display: inline-block !important; width: 100px !important; transform: translateY(-2.1em) scale(0.9) !important; color: #ffffff !important;}
+
+
+
+// dashboard
+.dashboard{
+    display: flex;
+    .sidePannel{
+        max-width: 100%;
+        flex: 0 0 25%;
+        background-color: #000000;
+        height: 100vh;
+    }
+    .dashbooadBody{
+        padding: 100px;
+        box-sizing: border-box;
+        flex: 0 0 75%;
+    }
+}

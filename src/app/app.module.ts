@@ -8,12 +8,15 @@ import { SidePannelComponent } from './share/side-pannel/side-pannel.component';
 import { LoginComponent } from './auth/login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from "./share/dashboard/dashboard.component"
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidePannelComponent,
     LoginComponent,
+    DashboardComponent,
+    SidePannelComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

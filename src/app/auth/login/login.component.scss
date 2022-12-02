@@ -1,0 +1,32 @@
+.auth_bg{
+    background: url(../../../assets/images/auth-bg.jpg) center ;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    .container, .row{
+        height: 100vh !important;
+    }
+}
+
+
+
+
+
+.login{
+    background-color: #000000;
+    padding: 70px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    
+    
+    h2{
+        font-size: 24px;
+        color: #ffffff;
+        margin-bottom: 50px;
+        font-weight: 400;
+    }
+    button{
+        margin-top: 70px;
+    }
+}
+.login_image{margin-bottom: 50px;}
