@@ -10,8 +10,8 @@
       <p class="userId">Fleet ID: </p>
     </div>
   </div>
-  <ul *ngFor="let menu of sidePannel">
-    <li><a [routerLink]="menu.path">{{menu.name}}</a></li>
+  <ul *ngFor="let sidePannel of sidePannel">
+    <li><a [routerLink]="sidePannel.path"  routerLinkActive="active-link" >{{sidePannel.name}} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 

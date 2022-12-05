@@ -1,6 +1,7 @@
 .logo{
     flex: 0 0 30%;
     max-width: 100%;
+    margin-right: 15px;
 }
 .sidePannel > div{padding: 50px 20px;}
 .sidePannel{
@@ -27,10 +28,26 @@
                 text-decoration: none;
                 width: 100%;
                 display: inline-block;
+                position: relative;
                 &:hover{
-                    color: lightblue;
+                    color: #15d2e6;
+                    i{
+                      background-color: #15d2e6;
+                      color: #000000;
+                    }
+                }
+                i{
+                  position: absolute;
+                  right: 30px;
+                  font-size: 12px;
+                  border-radius: 50%;
+                  border:1px solid rgba(255,255,255,0.3);
+                  padding: 10px;
                 }
             }
         }
     }
+}
+.active-link{
+  color: #15d2e6 !important;
 }
