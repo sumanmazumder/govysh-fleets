@@ -1,5 +1,7 @@
 <!-- <p>login works!</p> -->
-
+<div class="loader" *ngIf="loader">
+  <mat-spinner></mat-spinner>
+</div>
 <div class="auth_bg">
   <div class="container">
     <div class="row d-flex align-items-center">
@@ -10,7 +12,7 @@
           <form class="example-form" [formGroup]="loginForm">
               <mat-form-field appearance="outline">
                   <mat-label>Email / Fleet ID</mat-label>
-                  <input matInput placeholder="User Name" name="userName" formControlName="userName">
+                  <input matInput placeholder="User Name" type="email" name="userName" formControlName="userName">
                   <mat-icon matSuffix>
                       <img src="./assets/images/user-icon.svg">
                   </mat-icon>
@@ -21,27 +23,28 @@
 
               <mat-form-field appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input matInput type="password" placeholder="Password" name="password" formControlName="password">
-                  <mat-icon matSuffix>
+                  <input matInput [type]="hide? 'password' : 'text'" placeholder="Password" name="password" formControlName="password">
+                  <!-- <mat-icon matSuffix>
                       <img src="./assets/images/password-icon.svg">
-                  </mat-icon>
+                  </mat-icon> -->
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="loginForm.touched && loginForm.get('password')?.hasError('required')">
                     password required
                   </mat-error>
-                  <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+                  <!-- <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
                     minimum 10 letter
                   </mat-error>
                   <mat-error *ngIf="loginForm.get('password')?.hasError('maxlength')">
                     maximum 20 letter
-                  </mat-error>
+                  </mat-error> -->
                   <!-- <mat-error *ngIf="loginForm?.get('password')?.errors?['required']">
 
                   </mat-error> -->
               </mat-form-field>
               <div class="d-flex align-items-center justify-content-center">
-
                   <button (click)="login()" [disabled]="loginForm.invalid" class="btn btn-outline-primary">Submit</button>
               </div>
+              <a (click)="signUp()">Sign up</a>
           </form>
         </div>
       </div>

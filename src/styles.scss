@@ -1,38 +1,169 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 
 // app-root{width: 100%;}
-.mat-form-field{width: 100%;}
-.login .mat-form-field-appearance-outline .mat-form-field-outline{color: rgba(251, 251, 251, 0.12); background-color: transparent; border-radius: 5px;}
-.mat-icon{display: flex !important; align-items: center; justify-content: center;}
-.mat-icon img{width: 20px; height: 20px;}
-.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix{top:0em}
+.mat-form-field {
+  width: 100%;
+}
 
-.mat-focused .mat-form-field-label{
+.login .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(251, 251, 251, 0.12);
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.mat-icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0em
+}
+
+.mat-focused .mat-form-field-label, .mat-form-field-label {
   background-color: transparent;
   display: inline-block !important;
   width: 100px !important;
   // transform: translateY(-2.1em) scale(0.9) !important;
-  color: #ffffff !important;
+  // color: #ffffff !important;
 }
-
+// .mat-form-field-label{}
 
 
 // dashboard
-.dashboard{
-    display: flex;
-    .sidePannel{
-        max-width: 100%;
-        flex: 0 0 25%;
-        background-color: #000000;
-        height: 100vh;
+.dashboard {
+  display: table;
+  width: 100%;
+  .sidePannel {
+    max-width: 100%;
+    flex: 0 0 25%;
+    background-color: #000000;
+    height: 100%;
+    position: fixed;
+    width: 25%;
+    float: left;
+  }
+
+  .dashbooadBody {
+    padding: 30px;
+    box-sizing: border-box;
+    flex: 0 0 75%;
+    max-width:75%;
+    width: 75%;
+    float: right;
+  }
+}
+
+.mat-table {
+  overflow-x: scroll;
+  border-left: 1px solid #d4d4e0;
+  border-right: 1px solid #d4d4e0;
+
+  .mat-cell,
+  .mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 10px 10px;
+    line-break: unset;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .mat-row,
+  .mat-header-row {
+    display: table-row;
+  }
+
+  .mat-header-cell {
+    background-color: #118ee9;
+    color: #ffffff;
+  }
+
+  .mat-row:nth-child(even) {
+    background-color: #f1f1ff;
+  }
+
+  mat-cell {
+    button {
+      font-size: 14px;
     }
-    .dashbooadBody{
-        padding: 100px;
-        box-sizing: border-box;
-        flex: 0 0 75%;
-    }
+  }
+}
+
+.tableData {
+  position: relative;
+}
+
+.loader {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 139, 233, 0.3);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+// .table-responsive {
+//   display: block;
+//   width: 100%;
+//   overflow-x: auto;
+//   .mat-table {
+//       width: 100%;
+//       max-width: 100%;
+//       margin-bottom: 1rem;
+//       display: table;
+//       border-collapse: collapse;
+//       margin: 0px;
+//   }
+//   .mat-row,
+//   .mat-header-row {
+//       display: table-row;
+//   }
+//   .mat-cell,
+//   .mat-header-cell {
+//       word-wrap: initial;
+//       display: table-cell;
+//       padding: 0px 5px;
+//       line-break: unset;
+//       width: auto;
+//       white-space: nowrap;
+//       overflow: hidden;
+//       vertical-align: middle;
+//   }
+// }
+.heading{
+  margin-bottom: 30px;
+  h3{
+    color: #118ee9;
+    font-weight: 400;
+    font-size: 24px;
+    text-transform: capitalize;
+  }
 }

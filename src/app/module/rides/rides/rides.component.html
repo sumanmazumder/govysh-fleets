@@ -1,1 +1,56 @@
 <!-- <p>rides works!</p> -->
+<div class="loader" *ngIf="loader">
+  <mat-spinner></mat-spinner>
+</div>
+<!-- <pre>{{ridesData.length | json}}</pre> -->
+<div class="noData" *ngIf="ridesData.length === 0">
+  <h2>No data is there</h2>
+</div>
+<div class="tableData" *ngIf="ridesData.length">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="searchbar">
+        <mat-form-field appearance="outline" class="search_list">
+          <mat-label>Search for list</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Search for owner list" #input [(ngModel)]="searchValue">
+          <a *ngIf="input.value" (click)="clearFilter()">
+            <mat-icon matSuffix>clear</mat-icon>
+          </a>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-lg-6">
+
+    </div>
+  </div>
+  <div class="table-responsive">
+    <mat-table mat-table matSort [dataSource]="allTableData">
+      <ng-container [matColumnDef]="item.key" *ngFor="let item of tableHeader">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> {{item.label}} </mat-header-cell>
+        <ng-container *ngIf="item.key !== 'action' && item.key !== 'status'">
+          <mat-cell *matCellDef="let element">
+            <span [innerHTML]="getSellData(element, item.key) | safeHtml"></span>
+          </mat-cell>
+        </ng-container>
+        <ng-container *ngIf="item.key === 'status'">
+          <mat-cell *matCellDef="let element">
+            <p *ngIf="element.status === 'pending'" style="color:#ffffff; padding: 5px; border-radius: 3px; text-align: center; background-color: orange; font-weight: 500">Pending</p>
+            <p *ngIf="element.status === 'approve'" style="color:#ffffff; padding: 5px; border-radius: 3px; text-align: center; background-color: green; font-weight: 500">Approved</p>
+            <p *ngIf="element.status === 'decline'" style="color:#ffffff; padding: 5px; border-radius: 3px; text-align: center; background-color: red; font-weight: 500">Declined</p>
+            <!-- <pre>{{element.status | json}}</pre> -->
+          </mat-cell>
+        </ng-container>
+        <ng-container *ngIf="item.key === 'action'">
+          <mat-cell *matCellDef="let element">
+            <button class="btn btn-outline-primary" [matMenuTriggerFor]="menu">Action</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="deactivate()">Deactivate</button>
+            </mat-menu>
+          </mat-cell>
+        </ng-container>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"></mat-row>
+    </mat-table>
+  </div>
+</div>

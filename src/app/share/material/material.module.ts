@@ -34,13 +34,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
-// import { SafeHtmlPipe } from '../pipe/safe-html.pipe';
+import { SafeHtmlPipe } from '../../pipe/safe-html.pipe';
 // import { TableComponent } from "../share/table/table.component";
 import { CommonModule } from '@angular/common';
 // import { BreadcrumbComponent } from '../share/breadcrumb/breadcrumb.component';
 @NgModule({
   declarations: [
-    // SafeHtmlPipe,
+    SafeHtmlPipe,
     // TableComponent,
   ],
     imports: [ MatAutocompleteModule,CommonModule,
@@ -119,7 +119,7 @@ import { CommonModule } from '@angular/common';
       MatTreeModule,
       MatNativeDateModule,
       // AngularFontAwesomeModule,
-      // SafeHtmlPipe,
+      SafeHtmlPipe,
       // TableComponent,
       // BreadcrumbComponent,
     ],

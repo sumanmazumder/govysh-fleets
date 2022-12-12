@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./auth/login/login.component";
+import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './share/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path:'', pathMatch: 'full', redirectTo: 'login'},
   {path:'login', component: LoginComponent},
+  {path:'signup', component: RegisterComponent},
 
-  {path: 'dashboard', component: DashboardComponent, 
-  
+  {path: 'dashboard', component: DashboardComponent,
+
   children:[
     {path: '', pathMatch: 'full', redirectTo: 'rides'},
     {path: 'rides', data: {breadcrumb: 'Rides'}, loadChildren: () => import('./module/rides/rides.module').then(m => m.RidesModule)},
