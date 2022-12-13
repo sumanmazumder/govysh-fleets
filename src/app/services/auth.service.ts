@@ -15,6 +15,7 @@ export class AuthService {
   public permission : any[] = [];
   public userName : string;
   public userEmail : string;
+  public fleetId : string | any;
 
   constructor(
     private apiServices: ApiService,
@@ -26,16 +27,19 @@ export class AuthService {
     return this.http.post(url, payload);
   }
   signUp(payload:any){
-    let url = this.apiServices.getUrl('auth/fleet/signup');
+    let url = this.apiServices.getUrl('api/auth/fleet/signup');
     return this.http.post(url, payload);
   }
 
   public setUser(user : AuthInterface){
+    console.log(user);
+    this.fleetId = user.fleetId;
     this.userId = user.id;
     this.apiToken = user.token;
     this.permission = user.roles;
     this.userName = user.username;
     this.userEmail = user.email;
     // store.set(user.token);
+    localStorage.setItem("fleetId", this.fleetId);
   }
 }

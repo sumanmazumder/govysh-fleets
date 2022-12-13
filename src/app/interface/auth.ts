@@ -4,5 +4,6 @@ export interface AuthInterface {
     username?: string | any;
     email? : string | any;
     roles? : any;
-    userId? : string
+    userId? : string;
+    fleetId? : string | any;
 }

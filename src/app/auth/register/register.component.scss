@@ -1,9 +1,12 @@
 .auth_bg{
-    background: url(../../../assets/images/auth-bg.jpg) center ;
-    background-size: cover;
+    background: url(../../../assets/images/auth-bg.jpg) center no-repeat ;
+    background-size: 100%;
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
-    .container, .row{
+    position: fixed;
+    z-index: -1;
+    .container{
         height: 100vh !important;
     }
 }
@@ -13,14 +16,14 @@
 
 
 .login{
-    background-color: #000000;
+    background-color: #118be9d4;
     padding: 70px 40px;
     box-sizing: border-box;
     text-align: center;
     input{
         color: #ffffff;
     }
-    
+
     h2{
         font-size: 24px;
         color: #ffffff;

@@ -1,156 +1,190 @@
 <!-- <p>register works!</p> -->
 <div class="loader" *ngIf="loader">
-    <mat-spinner></mat-spinner>
-  </div>
-  <div class="auth_bg">
-    <div class="container">
-      <div class="row d-flex align-items-center">
-        <div class="col-xl-12 col-lg-12">
-          <div class="login">
-            <img src="./assets/images/logo.png" class="login_image" />
-            <h2>Fleet Managament Portal</h2>
-            <form class="example-form" [formGroup]="signupForm">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Company name</mat-label>
-                            <input matInput placeholder="Company name" name="companyName" formControlName="companyName">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/user-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('companyName')?.hasError('required')">
-                              Company name required
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Email</mat-label>
-                            <input matInput type="email" placeholder="Email" name="email" formControlName="email">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/password-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('email')?.hasError('required')">
-                                Email required
-                              </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Password</mat-label>
-                            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" name="password" formControlName="password">
-                            <mat-icon matSuffix (click)="hide = !hide">
-                                {{hide ? 'visibility_off' : 'visibility'}}
-                                <!-- <img src="./assets/images/password-icon.svg"> -->
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('password')?.hasError('required')">
-                              Password required
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Phone</mat-label>
-                            <input matInput type="text" placeholder="Phone" name="phone" [maxlength]=10 [minlength]=10 formControlName="phone">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/password-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('phone')?.hasError('required')">
-                              Phone number required
-                            </mat-error>
-                            <mat-error *ngIf="signupForm.get('phone')?.hasError('minlength')">
-                              minimum 10 letter
-                            </mat-error>
-                            <mat-error *ngIf="signupForm.get('phone')?.hasError('maxlength')">
-                              maximum 10 letter
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Address</mat-label>
-                            <input matInput type="text" placeholder="Address" name="address" formControlName="address">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/password-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('address')?.hasError('required')">
-                              Address required
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Postal code</mat-label>
-                            <input matInput type="text" placeholder="Postal code" name="postalCode" formControlName="postalCode">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/password-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('postalCode')?.hasError('required')">
-                              Postal code required
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Number of vehicles</mat-label>
-                            <input matInput type="number" placeholder="Number of vehicles" name="numberOfVehicles" formControlName="numberOfVehicles">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/password-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('numberOfVehicles')?.hasError('required')">
-                              Number of vehicles required
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Type of vehicles</mat-label>
-                            <input matInput type="text" placeholder="Type of vehicles" name="typeOfVehicles" formControlName="typeOfVehicles">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/password-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('typeOfVehicles')?.hasError('required')">
-                              Type of vehicles required
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Number of drivers</mat-label>
-                            <input matInput type="number" placeholder="Number of vehicles" name="numberOfDrivers" formControlName="numberOfDrivers">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/password-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('numberOfDrivers')?.hasError('required')">
-                              Number of drivers required
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Contact person</mat-label>
-                            <input matInput type="text" placeholder="Contact person" name="contactPersonName" formControlName="contactPersonName">
-                            <mat-icon matSuffix>
-                                <img src="./assets/images/password-icon.svg">
-                            </mat-icon>
-                            <mat-error *ngIf="signupForm.touched && signupForm.get('contactPersonName')?.hasError('required')">
-                              Contact person required
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <button (click)="signUp()" [disabled]="signupForm.invalid" class="btn btn-outline-primary">Submit</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <a (click)="login()">Sign in</a>
-                    </div>
-                </div>               
-                
-            </form>
-          </div>
+  <mat-spinner></mat-spinner>
+</div>
+<div class="auth_bg_register">
+  <div class="auth_bg"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-xl-12 col-lg-12">
+        <div class="login">
+          <img src="./assets/images/logo.png" class="login_image" />
+          <h2>Fleet Managament Portal</h2>
+          <form class="example-form" [formGroup]="signupForm">
+            <div class="row">
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Company name</mat-label>
+                  <input matInput placeholder="Company name" name="companyName" formControlName="companyName">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/user-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('companyName')?.hasError('required')">
+                    Company name required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" placeholder="Email" name="email" formControlName="email">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/password-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('email')?.hasError('required')">
+                    Email required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" name="password" formControlName="password">
+                  <mat-icon matSuffix (click)="hide = !hide">
+                    {{hide ? 'visibility_off' : 'visibility'}}
+                    <!-- <img src="./assets/images/password-icon.svg"> -->
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('password')?.hasError('required')">
+                    Password required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4">
+                <!-- <mat-form-field appearance="outline" floatLabel="always">
+                                    <mat-label>Telephone</mat-label>
+                                </mat-form-field> -->
+                <!-- <ngx-intl-tel-input [cssClass]="'custom'"
+                                    [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+                                    [enableAutoCountrySelect]="true" [enablePlaceholder]="true"
+                                    [searchCountryFlag]="true"
+                                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                    [selectedCountryISO]="CountryISO.UnitedKingdom" [phoneValidation]="true"
+                                    name="phone" formControlName="phone">
+                                </ngx-intl-tel-input> -->
+                <!-- <ngx-intl-tel-input
+                                [cssClass]="'custom'"
+                                [preferredCountries]="['sg']"
+                                [onlyCountries]="['my', 'us']"
+                                [enablePlaceholder]="true"
+                                [enableAutoCountrySelect]="true"
+                                name="phone"
+                                formControlName="phone"></ngx-intl-tel-input> -->
+                                <mat-form-field appearance="outline" class="example-form-field">
+                                  <!-- <mat-label>Phone No</mat-label> -->
+                                  <ngx-mat-intl-tel-input  formControlName="phone"
+                                    [preferredCountries]="['in', 'us']" [enablePlaceholder]="true" [maxlength]="10" [minlength]="10"
+                                    [enableSearch]="true" name="phone" (countryChanged)="yourComponentMethodToTreatyCountryChangedEvent($event)" (change)="phoneNoChangeHandeler($event)" #phone>
+                                  </ngx-mat-intl-tel-input>
+                                  <!-- <mat-error *ngIf="cabDriverRegisterForm?.get('phoneNo')?.touched">
+                                    <small *ngIf="cabDriverRegisterForm?.get('phoneNo')?.errors?.['required']">
+                                      Phone No is Required
+                                    </small>
+                                  </mat-error> -->
+                                </mat-form-field>
+              </div>
+              <!-- <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Phone</mat-label>
+                  <input matInput type="text" placeholder="Phone" name="phone" [maxlength]=10 [minlength]=10 formControlName="phone">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/password-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('phone')?.hasError('required')">
+                    Phone number required
+                  </mat-error>
+                  <mat-error *ngIf="signupForm.get('phone')?.hasError('minlength')">
+                    minimum 10 letter
+                  </mat-error>
+                  <mat-error *ngIf="signupForm.get('phone')?.hasError('maxlength')">
+                    maximum 10 letter
+                  </mat-error>
+                </mat-form-field>
+              </div> -->
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Address</mat-label>
+                  <input matInput type="text" placeholder="Address" name="address" formControlName="address">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/password-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('address')?.hasError('required')">
+                    Address required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Postal code</mat-label>
+                  <input matInput type="text" placeholder="Postal code" name="postalCode" formControlName="postalCode">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/password-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('postalCode')?.hasError('required')">
+                    Postal code required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Number of vehicles</mat-label>
+                  <input matInput type="number" placeholder="Number of vehicles" name="numberOfVehicles" formControlName="numberOfVehicles">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/password-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('numberOfVehicles')?.hasError('required')">
+                    Number of vehicles required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Type of vehicles</mat-label>
+                  <input matInput type="text" placeholder="Type of vehicles" name="typeOfVehicles" formControlName="typeOfVehicles">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/password-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('typeOfVehicles')?.hasError('required')">
+                    Type of vehicles required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Number of drivers</mat-label>
+                  <input matInput type="number" placeholder="Number of vehicles" name="numberOfDrivers" formControlName="numberOfDrivers">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/password-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('numberOfDrivers')?.hasError('required')">
+                    Number of drivers required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Contact person</mat-label>
+                  <input matInput type="text" placeholder="Contact person" name="contactPersonName" formControlName="contactPersonName">
+                  <mat-icon matSuffix>
+                    <img src="./assets/images/password-icon.svg">
+                  </mat-icon>
+                  <mat-error *ngIf="signupForm.touched && signupForm.get('contactPersonName')?.hasError('required')">
+                    Contact person required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-12">
+                <div class="d-flex align-items-center justify-content-center">
+                  <button (click)="signUp()" class="btn btn-outline-primary">Submit</button>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <a (click)="login()">Sign in</a>
+              </div>
+            </div>
+
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>

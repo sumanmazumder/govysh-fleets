@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidePannelComponent } from './share/side-pannel/side-pannel.component';
 import { LoginComponent } from './auth/login/login.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from "./share/dashboard/dashboard.component"
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -19,8 +18,12 @@ import { MaterialModule } from './share/material/material.module';
 import { RegisterComponent } from './auth/register/register.component';
 // import { SafeHtmlPipe } from './pipe/safe-html.pipe';
 import { headerInterceptorClass } from "./http-interceptor/index";
-
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+// import {Ng2TelInputModule} from 'ng2-tel-input';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
 
 
 @NgModule({
@@ -36,7 +39,6 @@ import { headerInterceptorClass } from "./http-interceptor/index";
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    MatFormFieldModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -44,6 +46,12 @@ import { headerInterceptorClass } from "./http-interceptor/index";
     HttpClientModule,
     // AngularFontAwesomeModule,
     MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    // Ng2TelInputModule,
+    NgxIntlTelInputModule,
+    NgxMatIntlTelInputComponent,
+    BsDropdownModule,
     ToastrModule.forRoot(),
   ],
   providers: [headerInterceptorClass],

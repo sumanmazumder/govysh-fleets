@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, MinLengthValidator} from "@angular/forms";
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -35,16 +35,16 @@ export class LoginComponent implements OnInit {
       (res:any)=>{
         console.log(res);
         this.loader = false;
-        this.loginServices.setUser(res);
+        this.loginServices.setUser(res.data);
         this.router.navigate(['./dashboard/rides/rides']);
       },(error:any)=>{
         this.loader = false;
-        this.router.navigate(['./dashboard/rides/rides']);
+        // this.router.navigate(['./dashboard/rides/rides']);
       },()=>{
         this.loader = false;
       }
     )
-    
+
   }
   signUp(){
     this.router.navigate(['./signup']);
