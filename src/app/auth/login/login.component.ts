@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, MinLengthValidator} from "@angular/forms";
 import { Router } from '@angular/router';
+import { TosterService } from '../../services/toster.service';
 import { AuthService } from '../../services/auth.service';
 
 
@@ -15,17 +16,17 @@ export class LoginComponent implements OnInit {
   public hide = true;
   constructor(
     private router: Router,
-    private loginServices : AuthService
+    private loginServices : AuthService,
+    private tosterServices: TosterService
   ) {
     this.loginForm = new FormGroup({
-      userName: new FormControl('', [Validators.required]),
+      username: new FormControl('', [Validators.required]),
       password: new FormControl ('', [Validators.required])
     })
    }
 
   ngOnInit(): void {
   }
-
 
   // submit handeler
   login(){
@@ -38,8 +39,9 @@ export class LoginComponent implements OnInit {
         this.loginServices.setUser(res.data);
         this.router.navigate(['./dashboard/rides/rides']);
       },(error:any)=>{
+        console.log(error)
         this.loader = false;
-        // this.router.navigate(['./dashboard/rides/rides']);
+        this.tosterServices.showError("error", error.error.message)
       },()=>{
         this.loader = false;
       }

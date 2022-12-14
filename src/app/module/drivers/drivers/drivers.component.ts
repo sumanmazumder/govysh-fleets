@@ -11,7 +11,7 @@ import * as _ from 'lodash';
 })
 export class DriversComponent implements OnInit {
   public driverData : any[] = [];
-  public fleetId: string = 'GVF202201';
+  public fleetId: any = '';
   public loader :boolean = false;
   public tableHeader: any[] = [
     { label: 'Id', key: 'id' },
@@ -36,6 +36,8 @@ export class DriversComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.fleetId = localStorage.getItem('fleetId');
+    console.log(this.fleetId);
     this.driverList();
     this.displayedColumns = this.tableHeader.map((element: any) => {
       // console.log(element);

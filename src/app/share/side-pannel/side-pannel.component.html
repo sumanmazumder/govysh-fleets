@@ -5,9 +5,10 @@
       <img src="./assets/images/logo.png" class="img-fluid"/>
     </div>
     <div class="user_info">
+      <pre>{{fleetUserData | json}}</pre>
       <span>Howdy</span>
-      <p>Suman Mazumder</p>
-      <p class="userId">Fleet ID: </p>
+      <p>{{contactPersonName}}</p>
+      <p class="userId">Fleet ID: <span>{{fleetId}}</span></p>
     </div>
   </div>
   <ul *ngFor="let sidePannel of sidePannel">

@@ -10,12 +10,16 @@ import {Store} from "@ngrx/store";
 })
 export class AuthService {
   public user : AuthInterface;
-  public userId: string;
-  public apiToken : string = '';
-  public permission : any[] = [];
-  public userName : string;
-  public userEmail : string;
+  // public userId: string;
+  // public apiToken : string = '';
+  // public permission : any[] = [];
+  // public userName : string;
+  // public userEmail : string;
   public fleetId : string | any;
+  // public contactPersonName : string | any;
+  // public companyName : string | any;
+
+  public userData = {}
 
   constructor(
     private apiServices: ApiService,
@@ -34,12 +38,26 @@ export class AuthService {
   public setUser(user : AuthInterface){
     console.log(user);
     this.fleetId = user.fleetId;
-    this.userId = user.id;
-    this.apiToken = user.token;
-    this.permission = user.roles;
-    this.userName = user.username;
-    this.userEmail = user.email;
+    // this.userEmail = user.email;
+    // this.contactPersonName = user.contactPersonName;
+    this.userData = user
     // store.set(user.token);
-    localStorage.setItem("fleetId", this.fleetId);
+    localStorage.setItem('fleetId', this.fleetId)
+    localStorage.setItem('fleetUserDetails', JSON.stringify(this.userData));
+  }
+
+
+  requestOTP(payload:any){
+    let url = this.apiServices.getUrl(`api/auth/requestotp`);
+    return this.http.post(url, payload);
+  }
+  
+
+
+
+
+  verifyOTP(payload:any){
+    let url = this.apiServices.getUrl('api/auth/verifyotp');
+    return this.http.post(url, payload);
   }
 }

@@ -13,7 +13,7 @@ import * as _ from 'lodash';
 export class RidesComponent implements OnInit {
   public ridesData : any[] = [];
   public loader : boolean =  false;
-  public fleetId: string = 'GVF20220008';
+  public fleetId: any = '';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -37,6 +37,8 @@ export class RidesComponent implements OnInit {
   constructor(private ridesService : RidesService) { }
 
   ngOnInit(): void {
+    this.fleetId = localStorage.getItem('fleetId');
+    console.log(this.fleetId);
     this.allRiderServices();
     this.displayedColumns = this.tableHeader.map((element: any) => {
       // console.log(element);

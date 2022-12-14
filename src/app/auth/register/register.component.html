@@ -39,7 +39,8 @@
               <div class="col-lg-4">
                 <mat-form-field appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" name="password" formControlName="password">
+                  <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" name="password"
+                    formControlName="password">
                   <mat-icon matSuffix (click)="hide = !hide">
                     {{hide ? 'visibility_off' : 'visibility'}}
                     <!-- <img src="./assets/images/password-icon.svg"> -->
@@ -69,18 +70,19 @@
                                 [enableAutoCountrySelect]="true"
                                 name="phone"
                                 formControlName="phone"></ngx-intl-tel-input> -->
-                                <mat-form-field appearance="outline" class="example-form-field">
-                                  <!-- <mat-label>Phone No</mat-label> -->
-                                  <ngx-mat-intl-tel-input  formControlName="phone"
-                                    [preferredCountries]="['in', 'us']" [enablePlaceholder]="true" [maxlength]="10" [minlength]="10"
-                                    [enableSearch]="true" name="phone" (countryChanged)="yourComponentMethodToTreatyCountryChangedEvent($event)" (change)="phoneNoChangeHandeler($event)" #phone>
-                                  </ngx-mat-intl-tel-input>
-                                  <!-- <mat-error *ngIf="cabDriverRegisterForm?.get('phoneNo')?.touched">
+                <mat-form-field appearance="outline" class="example-form-field">
+                  <!-- <mat-label>Phone No</mat-label> -->
+                  <ngx-mat-intl-tel-input formControlName="phone" [preferredCountries]="['in', 'us']"
+                    [enablePlaceholder]="true" [enableSearch]="true" name="phone"
+                    (countryChanged)="yourComponentMethodToTreatyCountryChangedEvent($event)"
+                     #phone>
+                  </ngx-mat-intl-tel-input>
+                  <!-- <mat-error *ngIf="cabDriverRegisterForm?.get('phoneNo')?.touched">
                                     <small *ngIf="cabDriverRegisterForm?.get('phoneNo')?.errors?.['required']">
                                       Phone No is Required
                                     </small>
                                   </mat-error> -->
-                                </mat-form-field>
+                </mat-form-field>
               </div>
               <!-- <div class="col-lg-4">
                 <mat-form-field appearance="outline">
@@ -127,7 +129,8 @@
               <div class="col-lg-4">
                 <mat-form-field appearance="outline">
                   <mat-label>Number of vehicles</mat-label>
-                  <input matInput type="number" placeholder="Number of vehicles" name="numberOfVehicles" formControlName="numberOfVehicles">
+                  <input matInput type="number" placeholder="Number of vehicles" name="numberOfVehicles"
+                    formControlName="numberOfVehicles">
                   <mat-icon matSuffix>
                     <img src="./assets/images/password-icon.svg">
                   </mat-icon>
@@ -139,7 +142,8 @@
               <div class="col-lg-4">
                 <mat-form-field appearance="outline">
                   <mat-label>Type of vehicles</mat-label>
-                  <input matInput type="text" placeholder="Type of vehicles" name="typeOfVehicles" formControlName="typeOfVehicles">
+                  <input matInput type="text" placeholder="Type of vehicles" name="typeOfVehicles"
+                    formControlName="typeOfVehicles">
                   <mat-icon matSuffix>
                     <img src="./assets/images/password-icon.svg">
                   </mat-icon>
@@ -151,7 +155,8 @@
               <div class="col-lg-4">
                 <mat-form-field appearance="outline">
                   <mat-label>Number of drivers</mat-label>
-                  <input matInput type="number" placeholder="Number of vehicles" name="numberOfDrivers" formControlName="numberOfDrivers">
+                  <input matInput type="number" placeholder="Number of vehicles" name="numberOfDrivers"
+                    formControlName="numberOfDrivers">
                   <mat-icon matSuffix>
                     <img src="./assets/images/password-icon.svg">
                   </mat-icon>
@@ -163,7 +168,8 @@
               <div class="col-lg-4">
                 <mat-form-field appearance="outline">
                   <mat-label>Contact person</mat-label>
-                  <input matInput type="text" placeholder="Contact person" name="contactPersonName" formControlName="contactPersonName">
+                  <input matInput type="text" placeholder="Contact person" name="contactPersonName"
+                    formControlName="contactPersonName">
                   <mat-icon matSuffix>
                     <img src="./assets/images/password-icon.svg">
                   </mat-icon>
@@ -174,11 +180,15 @@
               </div>
               <div class="col-lg-12">
                 <div class="d-flex align-items-center justify-content-center">
+                  <!-- <button (click)="signUp()" [disabled]="signupForm.invalid" class="btn btn-outline-primary">Submit</button> -->
                   <button (click)="signUp()" class="btn btn-outline-primary">Submit</button>
                 </div>
               </div>
               <div class="col-lg-12">
-                <a (click)="login()">Sign in</a>
+                <div class="already-account">
+                  <p>You have already an account <a (click)="login()">Sign in</a></p>
+                </div>
+                
               </div>
             </div>
 

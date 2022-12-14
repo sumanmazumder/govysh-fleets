@@ -24,7 +24,8 @@ import {MatInputModule} from '@angular/material/input';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
-
+import { OtpComponent } from './auth/otp/otp.component';
+import { NgOtpInputModule } from  'ng-otp-input';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
     DashboardComponent,
     SidePannelComponent,
     RegisterComponent,
+    OtpComponent,
     // SafeHtmlPipe,
   ],
   imports: [
@@ -52,10 +54,12 @@ import { NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
     NgxIntlTelInputModule,
     NgxMatIntlTelInputComponent,
     BsDropdownModule,
+    NgOtpInputModule,
     ToastrModule.forRoot(),
   ],
   providers: [headerInterceptorClass],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  entryComponents:[OtpComponent]
 })
 export class AppModule { }

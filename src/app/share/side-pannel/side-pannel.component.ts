@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-pannel.component.scss']
 })
 export class SidePannelComponent implements OnInit {
+  public fleetUserData:any;
+  public fleetId : any;
+  public contactPersonName: any;
   public sidePannel = [
     {path:"/dashboard/rides/rides", name: "Rides"},
     {path:"/dashboard/drivers/driver", name: "Drivers"},
@@ -16,6 +19,24 @@ export class SidePannelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.localStogageData();
+    
   }
+
+  localStogageData(){
+    let data = localStorage.getItem('fleetUserDetails');
+    this.fleetId = localStorage.getItem('fleetId');
+    if(data){
+      // setTimeout()
+      console.log(data);
+      let fleetUserData = JSON.parse(data);
+      this.contactPersonName = fleetUserData?.contactPersonName;
+      console.log(this.contactPersonName);
+    }
+  }
+  // ngAfterViewInit(){
+  //   console.log("after view init");
+  //   setTimeout(this.localStogageData, 5000)
+  // }
 
 }

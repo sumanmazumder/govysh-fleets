@@ -11,15 +11,15 @@ export class headerInterceptor implements HttpInterceptor{
 
         
         ngOnInit(): void { 
-            console.log(this.LoginService.apiToken);
+            console.log(this.LoginService.fleetId);
               
         }
 
         intercept(req: HttpRequest<any>, next: HttpHandler){
-            if(!this.LoginService.apiToken){
+            if(!this.LoginService.fleetId){
                 return next.handle(req);
             }
-            let header = req.headers.set('Authorization', `Bearer ${this.LoginService.apiToken}`);
+            let header = req.headers.set('Authorization', `Bearer ${this.LoginService.fleetId}`);
 
             const Tokensend = req.clone({
                 headers: header

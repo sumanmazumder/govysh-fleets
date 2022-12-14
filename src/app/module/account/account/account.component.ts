@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '../../../../../node_modules/
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-  private fleetId : string = "GVF2022067";
+  private fleetId : any = "";
   public loader: boolean = false;
   public fleetDetailsForm : FormGroup;
   public status:any[] = [
@@ -39,6 +39,7 @@ export class AccountComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.fleetId = localStorage.getItem('fleetId');
     this.accountDetails();
   }
 
