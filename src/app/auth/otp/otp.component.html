@@ -6,6 +6,6 @@
     <h3>Verify OTP</h3>
     <p>Code is send to <span>{{data}}</span></p>
     <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:6}"></ng-otp-input>
-    <p *ngIf="showMessage" class="error">OTP is not matched</p>
+    <!-- <p *ngIf="showMessage" class="error">OTP is not matched</p> -->
     <button (click)="otpHandelar()" [disabled]="!buttonVisiable" class="btn btn-primary">Submit OTP</button>
 </div>

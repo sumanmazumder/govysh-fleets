@@ -48,9 +48,9 @@ export class OtpComponent implements OnInit {
   onOtpChange(event:any){
     console.log(event);
     this.inputOtp = event;
-    if(this.otp == this.inputOtp){
+    if(this.inputOtp){
       this.buttonVisiable = true;
-      this.showMessage = false;
+      // this.showMessage = false;
     }
   }
   otpHandelar(){
@@ -66,7 +66,7 @@ export class OtpComponent implements OnInit {
         this.authServices.setToken(success.data);
         this.tosterServices.showSuccess("success", success.status);
         this.dialogRef.close(success);
-        
+
       },(error:any)=>{
         console.log(error);
         this.loader = false;
