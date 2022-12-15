@@ -75,7 +75,7 @@ export class AccountComponent implements OnInit {
       },(error:any)=>{
         console.log(error);
         this.loader = false;
-        this.tosterService.showError("success", error.error.message);
+        this.tosterService.showError("error", error.error.message);
       },()=>{
         this.loader = false;
       }

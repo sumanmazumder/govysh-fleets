@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'side-pannel',
@@ -15,12 +17,15 @@ export class SidePannelComponent implements OnInit {
     {path:"/dashboard/earning-and-withdrawal/earning-and-withdrawal", name: "Earning & Withdrawal"},
     {path:"/dashboard/account/account", name: "Account"},
     {path:"/dashboard/help-and-support/help-and-support", name: "Help & Support"},
+    // {path:"", name: "Log out"},
   ]
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.localStogageData();
-    
+
   }
 
   localStogageData(){
@@ -38,5 +43,13 @@ export class SidePannelComponent implements OnInit {
   //   console.log("after view init");
   //   setTimeout(this.localStogageData, 5000)
   // }
-
+  logOut(){
+    localStorage.removeItem('fleetUserDetails')
+    localStorage.removeItem('apiToken')
+    localStorage.removeItem('tokenDetails')
+    localStorage.removeItem('Phone')
+    localStorage.removeItem('fleetId')
+    localStorage.removeItem('contactPersonName')
+    this.router.navigate(['./login']);
+  }
 }

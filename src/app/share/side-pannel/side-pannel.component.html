@@ -14,6 +14,7 @@
   <ul *ngFor="let sidePannel of sidePannel">
     <li><a [routerLink]="sidePannel.path"  routerLinkActive="active-link" >{{sidePannel.name}} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
   </ul>
+  <a (click)="logOut()" class="btn btn-primary">Log out</a>
 </div>
 
 

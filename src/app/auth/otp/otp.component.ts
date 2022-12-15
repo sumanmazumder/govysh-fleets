@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { TosterService } from "../../services/toster.service";
 
+
 @Component({
   selector: 'app-otp',
   templateUrl: './otp.component.html',
@@ -62,6 +63,7 @@ export class OtpComponent implements OnInit {
       (success:any)=>{
         console.log(success);
         this.loader = false;
+        this.authServices.setToken(success.data);
         this.tosterServices.showSuccess("success", success.status);
         this.dialogRef.close(success);
         

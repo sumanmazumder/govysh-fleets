@@ -94,8 +94,6 @@ export class RegisterComponent implements OnInit {
             }
           });
         }
-
-
       },(error:any)=>{
         this.loader = false;
         console.log(error);

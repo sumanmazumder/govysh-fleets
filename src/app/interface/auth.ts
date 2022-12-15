@@ -22,4 +22,5 @@ export interface AuthInterface {
     status? : string | any;
     typeOfVehicles? : string | any;
     websiteLink? : string | any;
+    token? : string | any;
 }

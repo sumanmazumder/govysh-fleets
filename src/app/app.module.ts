@@ -26,6 +26,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
 import { OtpComponent } from './auth/otp/otp.component';
 import { NgOtpInputModule } from  'ng-otp-input';
+import { AuthGuard } from "./auth.guard";
+
+
 
 @NgModule({
   declarations: [
@@ -57,7 +60,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
     NgOtpInputModule,
     ToastrModule.forRoot(),
   ],
-  providers: [headerInterceptorClass],
+  providers: [headerInterceptorClass, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   entryComponents:[OtpComponent]
